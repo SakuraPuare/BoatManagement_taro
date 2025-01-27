@@ -90,6 +90,6 @@
     "tsconfig-paths-webpack-plugin": "^4.0.1",
     "typescript": "^5.1.0",
     "weapp-tailwindcss": "^3.7.0",
-    "webpack": "5.91.0"
+    "webpack": "5.94.0"
   }
 }
