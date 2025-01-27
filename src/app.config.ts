@@ -3,12 +3,12 @@ const getAppConfig = () => {
     pages: [
       "pages/index/index",
       "pages/booking/index",
+      "pages/booking/history/index",
       "pages/package/index",
       "pages/profile/index",
       "pages/profile/settings/index",
       "pages/profile/favorites/index",
       "pages/help/index",
-      // "pages/booking/history"
     ],
     window: {
       backgroundTextStyle: "light",

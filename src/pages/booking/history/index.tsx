@@ -1,7 +1,6 @@
 import {View, Text, Image} from "@tarojs/components";
 import {useState} from "react";
-
-// import { Calendar, Clock, MapPin, Users } from "lucide-react";
+import { FontAwesome } from "taro-icons";
 
 interface BookingRecord {
   id: string;
@@ -124,20 +123,20 @@ export default function BookingHistory() {
                 />
                 <View className="ml-4 flex-1">
                   <View className="flex items-center text-gray-500 text-sm mb-2">
-                    {/* <Calendar size={16} className="mr-1" /> */}
-                    <Text>{booking.date} {booking.time}</Text>
+                    <FontAwesome family="solid" name="calendar" size={16} color="#9CA3AF" />
+                    <Text className="ml-1">{booking.date} {booking.time}</Text>
                   </View>
                   <View className="flex items-center text-gray-500 text-sm mb-2">
-                    {/* <Clock size={16} className="mr-1" /> */}
-                    <Text>时长：{booking.duration}</Text>
+                    <FontAwesome family="solid" name="clock" size={16} color="#9CA3AF" />
+                    <Text className="ml-1">时长：{booking.duration}</Text>
                   </View>
                   <View className="flex items-center text-gray-500 text-sm mb-2">
-                    {/* <MapPin size={16} className="mr-1" /> */}
-                    <Text>{booking.location}</Text>
+                    <FontAwesome family="solid" name="location-dot" size={16} color="#9CA3AF" />
+                    <Text className="ml-1">{booking.location}</Text>
                   </View>
                   <View className="flex items-center text-gray-500 text-sm">
-                    {/* <Users size={16} className="mr-1" /> */}
-                    <Text>{booking.passengers}人</Text>
+                    <FontAwesome family="solid" name="user" size={16} color="#9CA3AF" />
+                    <Text className="ml-1">{booking.passengers}人</Text>
                   </View>
                 </View>
               </View>
@@ -179,7 +178,7 @@ export default function BookingHistory() {
         {filteredBookings.length === 0 && (
           <View className="flex flex-col items-center justify-center py-12">
             <View className="w-32 h-32 bg-gray-100 rounded-full mb-4 flex items-center justify-center">
-              {/* <Calendar size={48} className="text-gray-400" /> */}
+              <FontAwesome family="solid" name="calendar" size={48} color="#9CA3AF" />
             </View>
             <Text className="text-gray-500">暂无租船记录</Text>
           </View>

@@ -1,6 +1,6 @@
 import {View, Text, Image} from "@tarojs/components";
 import {useState} from "react";
-import {Heart, Clock, Users, MapPin} from "lucide-react";
+import { FontAwesome } from "taro-icons";
 import Taro from "@tarojs/taro";
 
 interface FavoriteItem {
@@ -124,10 +124,11 @@ export default function Favorites() {
             <View className="p-4">
               <View className="flex justify-between items-start">
                 <Text className="text-lg font-bold">{item.title}</Text>
-                <Heart
-                  size={24}
-                  fill="#EF4444"
-                  className="text-red-500"
+                <FontAwesome 
+                  family="solid" 
+                  name="heart" 
+                  size={24} 
+                  color="#EF4444"
                   onClick={(e) => handleUnfavorite(item.id, e)}
                 />
               </View>
@@ -136,17 +137,17 @@ export default function Favorites() {
                 {item.type === 'boat' ? (
                   <View className="space-y-1">
                     <View className="flex items-center">
-                      <MapPin size={16} className="mr-1"/>
+                      <FontAwesome family="solid" name="location-dot" size={16} color="#6B7280" className="mr-1"/>
                       <Text>{item.location}</Text>
                     </View>
                     <View className="flex items-center">
-                      <Users size={16} className="mr-1"/>
+                      <FontAwesome family="solid" name="users" size={16} color="#6B7280" className="mr-1"/>
                       <Text>可乘坐 {item.capacity} 人</Text>
                     </View>
                   </View>
                 ) : (
                   <View className="flex items-center">
-                    <Clock size={16} className="mr-1"/>
+                    <FontAwesome family="solid" name="clock" size={16} color="#6B7280" className="mr-1"/>
                     <Text>时长：{item.duration}</Text>
                   </View>
                 )}
@@ -180,7 +181,7 @@ export default function Favorites() {
         {filteredFavorites.length === 0 && (
           <View className="flex flex-col items-center justify-center py-12">
             <View className="w-32 h-32 bg-gray-100 rounded-full mb-4 flex items-center justify-center">
-              <Heart size={48} className="text-gray-400"/>
+              <FontAwesome family="solid" name="heart" size={48} color="#9CA3AF"/>
             </View>
             <Text className="text-gray-500">
               暂无收藏的{activeTab === 'boats' ? '游船' : '套餐'}

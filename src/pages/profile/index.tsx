@@ -11,12 +11,12 @@ export default function Profile() {
     {
       icon: "history",
       text: "租船记录",
-      path: "/pages/booking/history",
+      path: "/pages/booking/history/index",
     },
     {
       icon: "heart",
       text: "我的收藏",
-      path: "/pages/profile/favorites",
+      path: "/pages/profile/favorites/index",
     },
     {
       icon: "phone-alt",
@@ -31,7 +31,7 @@ export default function Profile() {
     {
       icon: "cog",
       text: "设置",
-      path: "/pages/profile/settings",
+      path: "/pages/profile/settings/index",
     },
   ];
 
