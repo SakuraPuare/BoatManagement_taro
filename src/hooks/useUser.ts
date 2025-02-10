@@ -1,4 +1,4 @@
-import {useState, useCallback} from 'react';
+import {useCallback, useState} from 'react';
 import Taro from "@tarojs/taro";
 
 export interface UserInfo {
@@ -48,15 +48,15 @@ export function useUser() {
   // 微信登录
   const login = useCallback(async () => {
     try {
-      const { code } = await Taro.login();
+      const {code} = await Taro.login();
       const res = await Taro.request({
         url: `${API_BASE_URL}/auth/wx/login`,
         method: 'POST',
-        data: { code }
+        data: {code}
       });
 
       if (res.data.code === 0) {
-        const { token, userInfo } = res.data.data;
+        const {token, userInfo} = res.data.data;
         const formattedUserInfo: UserInfo = {
           ...userInfo,
           token
@@ -76,12 +76,12 @@ export function useUser() {
   // 获取用户信息
   const getUserProfile = useCallback(async () => {
     try {
-      const { userInfo: wxUserInfo } = await Taro.getUserProfile({
+      const {userInfo: wxUserInfo} = await Taro.getUserProfile({
         desc: '用于完善用户资料'
       });
 
       // 先进行微信登录获取 code
-      const { code } = await Taro.login();
+      const {code} = await Taro.login();
 
       // 发送登录请求
       const res = await Taro.request({
@@ -98,7 +98,7 @@ export function useUser() {
       });
 
       if (res.data.code === 0) {
-        const { token, userInfo } = res.data.data;
+        const {token, userInfo} = res.data.data;
         const formattedUserInfo: UserInfo = {
           ...userInfo,
           token
@@ -159,7 +159,7 @@ export function useUser() {
       });
 
       if (res.data.code === 0) {
-        const { token, userInfo } = res.data.data;
+        const {token, userInfo} = res.data.data;
         const formattedUserInfo: UserInfo = {
           ...userInfo,
           token

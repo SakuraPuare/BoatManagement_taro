@@ -1,6 +1,6 @@
-import {View, Text, Switch} from "@tarojs/components";
+import {Switch, Text, View} from "@tarojs/components";
 import {useState} from "react";
-import { FontAwesome } from "taro-icons";
+import {FontAwesome} from "taro-icons";
 
 export default function Settings() {
   const [settings, setSettings] = useState({
@@ -13,7 +13,7 @@ export default function Settings() {
   const settingsItems = [
     {
       icon: "bell",
-      text: "消息通知", 
+      text: "消息通知",
       key: "notifications"
     },
     {

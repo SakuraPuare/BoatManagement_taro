@@ -1,4 +1,4 @@
-import {View, Text, Button, Image} from "@tarojs/components";
+import {Button, Image, Text, View} from "@tarojs/components";
 import {useUser} from "@/hooks/useUser";
 import {FontAwesome} from "taro-icons";
 

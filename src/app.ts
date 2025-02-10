@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react'
-import {useDidShow, useDidHide} from '@tarojs/taro'
+import {useEffect} from 'react'
+import {useDidHide, useDidShow} from '@tarojs/taro'
 // 全局样式
 import "./app.css";
 import "taro-icons/scss/FontAwesome.scss";

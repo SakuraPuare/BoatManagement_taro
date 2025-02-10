@@ -1,11 +1,11 @@
-import { View, Text, Button, Input } from "@tarojs/components";
-import { useState, useCallback } from "react";
-import { useUser } from "@/hooks/useUser";
+import {Button, Input, Text, View} from "@tarojs/components";
+import {useCallback, useState} from "react";
+import {useUser} from "@/hooks/useUser";
 import Taro from "@tarojs/taro";
-import { FontAwesome } from "taro-icons";
+import {FontAwesome} from "taro-icons";
 
 export default function Login() {
-  const { getUserProfile, loginWithCode, sendCode } = useUser();
+  const {getUserProfile, loginWithCode, sendCode} = useUser();
   const [loginType, setLoginType] = useState<"wechat" | "phone">("wechat");
   const [phone, setPhone] = useState("");
   const [verifyCode, setVerifyCode] = useState("");
@@ -15,11 +15,11 @@ export default function Login() {
   const handleWechatLogin = async () => {
     try {
       await getUserProfile();
-      Taro.showToast({ title: "登录成功", icon: "success" });
+      Taro.showToast({title: "登录成功", icon: "success"});
       Taro.navigateBack();
     } catch (error) {
       console.error("微信登录失败:", error);
-      Taro.showToast({ title: "登录失败", icon: "error" });
+      Taro.showToast({title: "登录失败", icon: "error"});
     }
   };
 
@@ -27,13 +27,13 @@ export default function Login() {
   const handleSendCode = useCallback(async () => {
     // 验证手机号格式
     if (!/^1[3-9]\d{9}$/.test(phone)) {
-      Taro.showToast({ title: "请输入正确的手机号", icon: "none" });
+      Taro.showToast({title: "请输入正确的手机号", icon: "none"});
       return;
     }
 
     try {
       await sendCode(phone);
-      Taro.showToast({ title: "验证码已发送", icon: "success" });
+      Taro.showToast({title: "验证码已发送", icon: "success"});
 
       // 开始倒计时
       setCountdown(60);
@@ -48,24 +48,24 @@ export default function Login() {
       }, 1000);
     } catch (error) {
       console.error("发送验证码失败:", error);
-      Taro.showToast({ title: "发送失败", icon: "error" });
+      Taro.showToast({title: "发送失败", icon: "error"});
     }
   }, [phone, sendCode]);
 
   // 处理验证码登录
   const handleCodeLogin = async () => {
     if (!phone || !verifyCode) {
-      Taro.showToast({ title: "请填写完整信息", icon: "none" });
+      Taro.showToast({title: "请填写完整信息", icon: "none"});
       return;
     }
 
     try {
       await loginWithCode(phone, verifyCode);
-      Taro.showToast({ title: "登录成功", icon: "success" });
+      Taro.showToast({title: "登录成功", icon: "success"});
       Taro.navigateBack();
     } catch (error) {
       console.error("验证码登录失败:", error);
-      Taro.showToast({ title: "登录失败", icon: "error" });
+      Taro.showToast({title: "登录失败", icon: "error"});
     }
   };
 
@@ -95,7 +95,7 @@ export default function Login() {
       {loginType === "wechat" && (
         <View className="bg-white rounded-lg p-6">
           <View className="flex justify-center mb-6">
-            <FontAwesome family="brands" name="weixin" size={64} color="#07C160" />
+            <FontAwesome family="brands" name="weixin" size={64} color="#07C160"/>
           </View>
           <Button
             className="bg-[#07C160] text-white rounded-full"
@@ -162,11 +162,11 @@ export default function Login() {
       {/* 用户协议 */}
       <View className="mt-4 text-center text-gray-500 text-sm">
         <Text>登录即代表您同意</Text>
-        <Text className="text-blue-500" onClick={() => Taro.navigateTo({ url: '/pages/agreement/index' })}>
+        <Text className="text-blue-500" onClick={() => Taro.navigateTo({url: '/pages/agreement/index'})}>
           《用户服务协议》
         </Text>
         <Text>和</Text>
-        <Text className="text-blue-500" onClick={() => Taro.navigateTo({ url: '/pages/privacy/index' })}>
+        <Text className="text-blue-500" onClick={() => Taro.navigateTo({url: '/pages/privacy/index'})}>
           《隐私政策》
         </Text>
       </View>

@@ -1,4 +1,4 @@
-import {View, Image, Text} from "@tarojs/components";
+import {Image, Text, View} from "@tarojs/components";
 import {navigateTo} from "@tarojs/taro";
 
 import "./index.css";

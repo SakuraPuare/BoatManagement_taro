@@ -1,6 +1,6 @@
-import {View, Text, Image} from "@tarojs/components";
+import {Image, Text, View} from "@tarojs/components";
 import {useState} from "react";
-import { FontAwesome } from "taro-icons";
+import {FontAwesome} from "taro-icons";
 import Taro from "@tarojs/taro";
 
 interface FavoriteItem {
@@ -124,10 +124,10 @@ export default function Favorites() {
             <View className="p-4">
               <View className="flex justify-between items-start">
                 <Text className="text-lg font-bold">{item.title}</Text>
-                <FontAwesome 
-                  family="solid" 
-                  name="heart" 
-                  size={24} 
+                <FontAwesome
+                  family="solid"
+                  name="heart"
+                  size={24}
                   color="#EF4444"
                   onClick={(e) => handleUnfavorite(item.id, e)}
                 />
